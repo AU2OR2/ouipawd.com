@@ -599,6 +599,13 @@
       }
       input.parentElement.style.display = 'none';
       success.style.display = 'block';
+
+fetch('https://formspree.io/f/xeepawzw', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ email: email })
+});
+
     }
 
     document.addEventListener('keydown', function(e) {
