@@ -14,16 +14,47 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Oui PAWD — Life is better with your dog." />
   <meta name="twitter:description" content="The super-app for dog owners. Coming soon to North America." />
+
+  <!-- FIX 1: Non-blocking font loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'" />
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" />
+  </noscript>
+
+  <!-- FIX 4: Structured data JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "Oui PAWD",
+    "description": "The super-app for dog owners. Find walks, discover dog-friendly places, get shared recipes, and join your local dog community.",
+    "url": "https://ouipawd.com",
+    "applicationCategory": "LifestyleApplication",
+    "operatingSystem": "iOS, Android",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "Oui PAWD",
+      "url": "https://ouipawd.com"
+    }
+  }
+  </script>
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --terra: #C85535; --terra-soft: #E0896A; --terra-pale: #F7E0D6;
       --terra-xpale: #FEF6F2; --cream: #FFFFFF; --cream-dark: #FBF6F0;
       --cream-mid: #E8DDD4; --ink: #1E1208; --ink-soft: #4A3728;
-      --ink-lighter: #8A7568; --white: #FFFFFF;
+      --ink-lighter: #6B5748;
+      --white: #FFFFFF;
     }
     html { scroll-behavior: smooth; }
     body { background: var(--cream); color: var(--ink); font-family: 'DM Sans', sans-serif; font-weight: 300; overflow-x: hidden; }
@@ -115,110 +146,130 @@
 </head>
 <body>
 
-  <nav>
-    <div class="nav-logo">Oui <span>PAWD</span></div>
+  <nav aria-label="Main navigation">
+    <div class="nav-logo" aria-label="Oui PAWD">Oui <span>PAWD</span></div>
     <a href="#waitlist" class="nav-cta">Join Waitlist</a>
   </nav>
 
-  <section class="hero">
-    <div class="hero-tag"><span class="hero-tag-dot"></span>Starting in your city. Built for North America.</div>
-    <h1>Life is better<br>with your <em>dog.</em></h1>
-    <p class="hero-sub">Walks, discoveries, shared recipes, and a community that gets you — all in one place. Finally.</p>
-    <div class="brevo-wrap">
-      <iframe width="540" height="305" src="https://040fad88.sibforms.com/serve/MUIFAF6A0TLuj2jhMfm3IKdEZAvOpUet2MjktFDCsD8ChEpAuYrDG_Bbv63_y_0xzBqpmgaqiS-0Qe_BbLbo4APqo5PMj6-am9n09bYk6z6npGy5gm8voaTnmOHRHZt0XxeF4lVU598w0sHlyaEpiGMm3kb76LzbJH-2llgvVd7x1NATJ4MYrNBURHKfNd4A6RWShsl8NzN49ncWrA==" frameborder="0" scrolling="auto" allowfullscreen style="display: block;margin-left: auto;margin-right: auto;max-width: 100%;"></iframe>
-    </div>
-    <p class="hero-note">Free to join · No spam · Founding members get 3 months Paw+ free</p>
-  </section>
+  <main>
 
-  <div class="proof-bar">🐾 Be among the first dog owners to experience Oui PAWD &nbsp;·&nbsp; <span>Founding Member perks available now</span> &nbsp;·&nbsp; Launching in North America</div>
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-tag"><span class="hero-tag-dot" aria-hidden="true"></span>Starting in your city. Built for North America.</div>
+      <h1 id="hero-heading">Life is better<br>with your <em>dog.</em></h1>
+      <p class="hero-sub">Walks, discoveries, shared recipes, and a community that gets you — all in one place. Finally.</p>
+      <div class="brevo-wrap">
+        <iframe
+          title="Join the Oui PAWD waitlist"
+          width="540"
+          height="305"
+          src="https://040fad88.sibforms.com/serve/MUIFAF6A0TLuj2jhMfm3IKdEZAvOpUet2MjktFDCsD8ChEpAuYrDG_Bbv63_y_0xzBqpmgaqiS-0Qe_BbLbo4APqo5PMj6-am9n09bYk6z6npGy5gm8voaTnmOHRHZt0XxeF4lVU598w0sHlyaEpiGMm3kb76LzbJH-2llgvVd7x1NATJ4MYrNBURHKfNd4A6RWShsl8NzN49ncWrA=="
+          frameborder="0" scrolling="auto" allowfullscreen loading="lazy"
+          style="display: block;margin-left: auto;margin-right: auto;max-width: 100%;">
+        </iframe>
+      </div>
+      <p class="hero-note">Free to join · No spam · Founding members get 3 months Paw+ free</p>
+    </section>
 
-  <section class="section founder">
-    <div class="founder-inner">
-      <div class="founder-visual reveal">
-        <div class="founder-photo-wrap">
-          <img src="reiji.jpeg" alt="Aurore & Reiji" class="founder-photo">
+    <div class="proof-bar" role="marquee" aria-label="Announcement">🐾 Be among the first dog owners to experience Oui PAWD &nbsp;·&nbsp; <span>Founding Member perks available now</span> &nbsp;·&nbsp; Launching in North America</div>
+
+    <section class="section founder" aria-labelledby="founder-heading">
+      <div class="founder-inner">
+        <div class="founder-visual reveal">
+          <div class="founder-photo-wrap">
+            <img src="reiji.jpeg" alt="Reiji, a Brussels Griffon dog and the Chief Inspiration Officer of Oui PAWD" class="founder-photo" width="400" height="533" loading="lazy" />
+          </div>
+          <div class="founder-dog-name">Reiji</div>
+          <div class="founder-dog-breed">Brussels Griffon · Chief Inspiration Officer</div>
+          <div class="founder-divider" aria-hidden="true"></div>
+          <div class="founder-quote-small">"She didn't just inspire this app.<br>She made it necessary."</div>
         </div>
-        <div class="founder-dog-name">Reiji</div>
-        <div class="founder-dog-breed">Brussels Griffon · Chief Inspiration Officer</div>
-        <div class="founder-divider"></div>
-        <div class="founder-quote-small">"She didn't just inspire this app.<br>She made it necessary."</div>
+        <div class="founder-text reveal">
+          <div class="section-label">The Story Behind Oui PAWD</div>
+          <h2 id="founder-heading">Built out of <em>frustration.</em><br>Fuelled by love.</h2>
+          <p>When I got Reiji — my impossibly affectionate Brussels Griffon — I thought having a dog would simplify my life. It did the opposite. I was constantly switching between apps: one for walks, one to find dog-friendly spots, another for recipes, a Facebook group to find playdates. None of them talked to each other. None of them really understood what it means to live with a dog in the city.</p>
+          <p>So I built what I wished existed. <strong>Oui PAWD is Reiji's app as much as it's mine</strong> — designed for dog owners who want to do more with their dogs, not spend their evenings managing tabs.</p>
+          <p>We're community-first, and we're building this one city at a time — starting with the dog lovers who sign up today.</p>
+        </div>
       </div>
-      <div class="founder-text reveal">
-        <div class="section-label">The Story Behind Oui PAWD</div>
-        <h2>Built out of <em>frustration.</em><br>Fuelled by love.</h2>
-        <p>When I got Reiji — my impossibly affectionate Brussels Griffon — I thought having a dog would simplify my life. It did the opposite. I was constantly switching between apps: one for walks, one to find dog-friendly spots, another for recipes, a Facebook group to find playdates. None of them talked to each other. None of them really understood what it means to live with a dog in the city.</p>
-        <p>So I built what I wished existed. <strong>Oui PAWD is Reiji's app as much as it's mine</strong> — designed for dog owners who want to do more with their dogs, not spend their evenings managing tabs.</p>
-        <p>We're community-first, and we're building this one city at a time — starting with the dog lovers who sign up today.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section problem">
-    <div class="problem-inner">
-      <div class="reveal">
-        <div class="section-label">The Problem</div>
-        <h2>You love your dog.<br>The apps <em>don't</em><br>love you back.</h2>
-        <p class="problem-text">You're juggling Rover for walks, Google Maps for dog-friendly spots, Pinterest for recipes, and three Facebook groups just to find a weekend playdate. It's exhausting. There's a better way.</p>
+    <section class="section problem" aria-labelledby="problem-heading">
+      <div class="problem-inner">
+        <div class="reveal">
+          <div class="section-label">The Problem</div>
+          <h2 id="problem-heading">You love your dog.<br>The apps <em>don't</em><br>love you back.</h2>
+          <p class="problem-text">You're juggling Rover for walks, Google Maps for dog-friendly spots, Pinterest for recipes, and three Facebook groups just to find a weekend playdate. It's exhausting. There's a better way.</p>
+        </div>
+        <div class="app-chaos reveal" aria-label="Current fragmented app landscape">
+          <div class="chaos-card"><span class="icon" aria-hidden="true">🦮</span><div><div class="app-name">Rover / Wag</div>Walks only</div></div>
+          <div class="chaos-card"><span class="icon" aria-hidden="true">🗺️</span><div><div class="app-name">Google Maps</div>Not built for dogs</div></div>
+          <div class="chaos-card"><span class="icon" aria-hidden="true">📌</span><div><div class="app-name">Pinterest</div>Unverified recipes</div></div>
+          <div class="chaos-card"><span class="icon" aria-hidden="true">👥</span><div><div class="app-name">Facebook Groups</div>Slow & unreliable</div></div>
+          <div class="chaos-card hero-card"><span aria-hidden="true">🐾</span><strong>Oui PAWD does all of this. One app.</strong></div>
+        </div>
       </div>
-      <div class="app-chaos reveal">
-        <div class="chaos-card"><span class="icon">🦮</span><div><div class="app-name">Rover / Wag</div>Walks only</div></div>
-        <div class="chaos-card"><span class="icon">🗺️</span><div><div class="app-name">Google Maps</div>Not built for dogs</div></div>
-        <div class="chaos-card"><span class="icon">📌</span><div><div class="app-name">Pinterest</div>Unverified recipes</div></div>
-        <div class="chaos-card"><span class="icon">👥</span><div><div class="app-name">Facebook Groups</div>Slow & unreliable</div></div>
-        <div class="chaos-card hero-card"><span>🐾</span><strong>Oui PAWD does all of this. One app.</strong></div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section pillars">
-    <div class="pillars-inner">
-      <div class="reveal">
-        <div class="section-label">What We're Building</div>
-        <h2>Everything your dog's<br>life needs, <em>together.</em></h2>
+    <section class="section pillars" aria-labelledby="pillars-heading">
+      <div class="pillars-inner">
+        <div class="reveal">
+          <div class="section-label">What We're Building</div>
+          <h2 id="pillars-heading">Everything your dog's<br>life needs, <em>together.</em></h2>
+        </div>
+        <div class="pillars-grid">
+          <div class="pillar-card reveal"><span class="pillar-emoji" aria-hidden="true">🐕</span><h3>Walk</h3><p>Find a walk buddy nearby or book a vetted professional. Real-time GPS tracking, photo reports, safe payments, and verified reviews.</p><span class="pillar-tag">C2C + Pro</span></div>
+          <div class="pillar-card reveal"><span class="pillar-emoji" aria-hidden="true">📍</span><h3>Discover</h3><p>The only map built by dog owners, for dog owners. Dog-friendly restaurants, parks, vets, groomers — verified by real pet parents.</p><span class="pillar-tag">Community-verified</span></div>
+          <div class="pillar-card reveal"><span class="pillar-emoji" aria-hidden="true">🍽️</span><h3>Shared Recipes</h3><p>One meal, two versions. A recipe for your dog and one for you — made to be cooked at the same time, on the same evening.</p><span class="pillar-tag">Dog & Owner</span></div>
+          <div class="pillar-card reveal"><span class="pillar-emoji" aria-hidden="true">🎉</span><h3>Community</h3><p>Local meetups, dog-friendly events, breed groups, and a feed full of people who love their dogs as much as you love yours.</p><span class="pillar-tag">Local & Social</span></div>
+        </div>
       </div>
-      <div class="pillars-grid">
-        <div class="pillar-card reveal"><span class="pillar-emoji">🐕</span><h3>Walk</h3><p>Find a walk buddy nearby or book a vetted professional. Real-time GPS tracking, photo reports, safe payments, and verified reviews.</p><span class="pillar-tag">C2C + Pro</span></div>
-        <div class="pillar-card reveal"><span class="pillar-emoji">📍</span><h3>Discover</h3><p>The only map built by dog owners, for dog owners. Dog-friendly restaurants, parks, vets, groomers — verified by real pet parents.</p><span class="pillar-tag">Community-verified</span></div>
-        <div class="pillar-card reveal"><span class="pillar-emoji">🍽️</span><h3>Shared Recipes</h3><p>One meal, two versions. A recipe for your dog and one for you — made to be cooked at the same time, on the same evening.</p><span class="pillar-tag">Dog & Owner</span></div>
-        <div class="pillar-card reveal"><span class="pillar-emoji">🎉</span><h3>Community</h3><p>Local meetups, dog-friendly events, breed groups, and a feed full of people who love their dogs as much as you love yours.</p><span class="pillar-tag">Local & Social</span></div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section features" id="waitlist">
-    <div class="features-inner">
-      <div class="reveal">
-        <div class="section-label">Why Oui PAWD</div>
-        <h2>Built for dog owners<br>who want <em>it all.</em></h2>
-        <ul class="feature-list">
-          <li><span class="check">✓</span>Find walk buddies or hire vetted professionals near you</li>
-          <li><span class="check">✓</span>Discover dog-friendly spots your city never told you about</li>
-          <li><span class="check">✓</span>Cook a meal for you and your dog — together, same evening</li>
-          <li><span class="check">✓</span>Join local dog events, meetups, and breed communities</li>
-          <li><span class="check">✓</span>One profile for your dog. Everything in one place.</li>
-        </ul>
+    <section class="section features" id="waitlist" aria-labelledby="features-heading">
+      <div class="features-inner">
+        <div class="reveal">
+          <div class="section-label">Why Oui PAWD</div>
+          <h2 id="features-heading">Built for dog owners<br>who want <em>it all.</em></h2>
+          <ul class="feature-list">
+            <li><span class="check" aria-hidden="true">✓</span>Find walk buddies or hire vetted professionals near you</li>
+            <li><span class="check" aria-hidden="true">✓</span>Discover dog-friendly spots your city never told you about</li>
+            <li><span class="check" aria-hidden="true">✓</span>Cook a meal for you and your dog — together, same evening</li>
+            <li><span class="check" aria-hidden="true">✓</span>Join local dog events, meetups, and breed communities</li>
+            <li><span class="check" aria-hidden="true">✓</span>One profile for your dog. Everything in one place.</li>
+          </ul>
+        </div>
+        <div class="founding-box reveal">
+          <h3>Join as a Founding Member</h3>
+          <p class="sub">Be first. Get rewarded.</p>
+          <ul class="perk-list">
+            <li>3 months of Paw+ completely free at launch</li>
+            <li>Exclusive Founding Member badge in the app</li>
+            <li>First access when we launch in your city</li>
+            <li>Shape the app — your feedback gets priority</li>
+          </ul>
+          <iframe
+            title="Join as a Founding Member of Oui PAWD"
+            width="540"
+            height="305"
+            src="https://040fad88.sibforms.com/serve/MUIFAF6A0TLuj2jhMfm3IKdEZAvOpUet2MjktFDCsD8ChEpAuYrDG_Bbv63_y_0xzBqpmgaqiS-0Qe_BbLbo4APqo5PMj6-am9n09bYk6z6npGy5gm8voaTnmOHRHZt0XxeF4lVU598w0sHlyaEpiGMm3kb76LzbJH-2llgvVd7x1NATJ4MYrNBURHKfNd4A6RWShsl8NzN49ncWrA=="
+            frameborder="0" scrolling="auto" allowfullscreen loading="lazy"
+            style="display: block;margin-left: auto;margin-right: auto;max-width: 100%;">
+          </iframe>
+        </div>
       </div>
-      <div class="founding-box reveal">
-        <h3>Join as a Founding Member</h3>
-        <p class="sub">Be first. Get rewarded.</p>
-        <ul class="perk-list">
-          <li>3 months of Paw+ completely free at launch</li>
-          <li>Exclusive Founding Member badge in the app</li>
-          <li>First access when we launch in your city</li>
-          <li>Shape the app — your feedback gets priority</li>
-        </ul>
-        <iframe width="540" height="305" src="https://040fad88.sibforms.com/serve/MUIFAF6A0TLuj2jhMfm3IKdEZAvOpUet2MjktFDCsD8ChEpAuYrDG_Bbv63_y_0xzBqpmgaqiS-0Qe_BbLbo4APqo5PMj6-am9n09bYk6z6npGy5gm8voaTnmOHRHZt0XxeF4lVU598w0sHlyaEpiGMm3kb76LzbJH-2llgvVd7x1NATJ4MYrNBURHKfNd4A6RWShsl8NzN49ncWrA==" frameborder="0" scrolling="auto" allowfullscreen style="display: block;margin-left: auto;margin-right: auto;max-width: 100%;"></iframe>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <footer>
-    <div class="footer-logo">Oui <span>PAWD</span></div>
-    <div class="footer-links">
-      <a href="#">Instagram</a>
-      <a href="#">TikTok</a>
-      <a href="mailto:hello@ouipawd.com">Contact</a>
-    </div>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="footer-logo" aria-label="Oui PAWD">Oui <span>PAWD</span></div>
+    <nav aria-label="Footer navigation">
+      <div class="footer-links">
+        <a href="#" aria-label="Oui PAWD on Instagram">Instagram</a>
+        <a href="#" aria-label="Oui PAWD on TikTok">TikTok</a>
+        <a href="mailto:hello@ouipawd.com" aria-label="Email Oui PAWD">Contact</a>
+      </div>
+    </nav>
     <p class="footer-copy">© 2026 Oui PAWD · ouipawd.com · Made with 🐾 for dog lovers</p>
   </footer>
 
